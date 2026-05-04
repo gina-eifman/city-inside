@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "Tenor Sans";
+    font-style: normal;
+    font-weight: normal;
+    src: url(./Tenor_Sans/TenorSans-Regular.woff) format("woff"),
+         url(./Tenor_Sans/TenorSans-Regular.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: "Cormorant Garamond";
+    font-style: italic;
+    font-weight: bold;
+    src: url(./Cormorant_Garamond/CormorantGaramond-Regular.woff) format("woff"),
+         url(./Cormorant_Garamond/CormorantGaramond-Regular.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: "Cormorant Garamond";
+    font-style: normal;
+    font-weight: normal;
+    src: url(./Cormorant_Garamond/CormorantGaramond-BoldItalic.woff) format("woff"),
+         url(./Cormorant_Garamond/CormorantGaramond-BoldItalic.woff2) format("woff2");
+}

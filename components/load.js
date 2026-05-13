@@ -3,10 +3,9 @@ async function loadComponent(selector, file) {
   const html = await response.text();
   document.querySelector(selector).innerHTML = html;
 }
-console.log('1')
 function applyTheme() {
-    const page = window.location.pathname.split('/').pop();
-    const isDarkPage = page === 'mystery.html';
+    const page = window.location.search;
+    const isDarkPage = page === '?page=mystery';
     const header = document.querySelector('.header');
     if (header) {
         const link = document.querySelectorAll('.menu__link')
@@ -17,7 +16,7 @@ function applyTheme() {
         link.forEach((el) => {
             el.classList.add(isDarkPage ? 'menu__link_dark' : 'menu__link')
             const linkPage = el.getAttribute('href');
-            if (linkPage === `./${page}`) {
+            if (linkPage === `/city-inside/emotion.html${page}`) {
                 el.classList.add(isDarkPage ? 'menu__link_active-dark' : 'menu__link_active');
             }
         });
@@ -35,7 +34,7 @@ function applyTheme() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    await loadComponent('#header-placeholder', '/components/header.html');
-    await loadComponent('#footer-placeholder', '/components/footer.html');
+    await loadComponent('#header-placeholder', '/city-inside/components/header.html');
+    await loadComponent('#footer-placeholder', '/city-inside/components/footer.html');
     applyTheme();
 });

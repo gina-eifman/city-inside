@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="/city-inside/styles/page.css">
+    <link rel="stylesheet" href="/city-inside/styles/header.css">
+    <link rel="stylesheet" href="/city-inside/styles/footer.css">
+    <link rel="icon" href="/city-inside/images/favico.png" type="image/png">
+    <title>Город внутри тебя</title>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main class="page">
+        <h1 class="page__title"></h1>
+        <h2 class="page__subtitle"></h2>
+        <div class="sections-container"></div>
+        <h3 class="section__header section__header_last">04 // Перейти в нужное место</h3>
+        <div class="cards"></div>
+    </main>
+    <nav class="navigation"></nav>
+    <div id="footer-placeholder"></div>
+  
+    <script src="/city-inside/components/load.js"></script>  
+    <script src="/city-inside/data/happy.js"></script>
+    <script src="/city-inside/data/calm.js"></script>
+    <script src="/city-inside/data/mystery.js"></script>
+    <script src="/city-inside/data/ambition.js"></script>
+    <script src="/city-inside/scripts/header.js"></script>
+    <script src="/city-inside/scripts/footer.js"></script>
+    <script src="/city-inside/scripts/page.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const pageName = urlParams.get('page');
+        const pagesData = {
+            happy: pageDataHappy,
+            calm: pageDataCalm,
+            mystery: pageDataMystery,
+            ambition: pageDataAmbition
+        };
+        const currentData = pagesData[pageName];
+        if (currentData) {
+            renderPage(currentData);
+        } else {
+            document.querySelector('.page__title').textContent = 'Страница не найдена';
+            document.querySelector('.section__header_last').remove();     
+        }
+    </script>
+</body>
+</html>
